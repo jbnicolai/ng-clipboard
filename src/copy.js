@@ -14,7 +14,8 @@ angular.module("ng-clipboard")
                 let onError = () => {
                     scope.onError();  
                 };
-                element.on("click", () => {
+                element.on("click", (e) => {
+                    e.stopPropagation();
                     createFake(scope.ngCopy, "copy", onSuccess, onError);
                 });
             }
